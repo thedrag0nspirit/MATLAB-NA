@@ -1,0 +1,23 @@
+%% Least Square Method : submitted by- Pulkit Gupta 102115172
+clc;
+clear all;
+xvec=[1 2 3 4 5 6 7 8 9 10];
+[~,n]=size(xvec);
+yvec=[1.3 3.5 4.2 5.0 7.0 8.8 10.1 12.5 13.0 15.6];
+degree=1;
+x=zeros(degree+1,n);
+for i=1:degree+1
+    x(i,:)=xvec.^(i-1);
+end
+A=x*x'
+b=x*yvec'
+A=[A b]
+x=GE(A)
+scatter(xvec,yvec)
+hold on
+x=flip(x)% matlab by default reads a code as 'bx+a' form while we computed 'a+bx'
+%poly2sym(x) % additional file required to run this function 
+approx=polyval(x,xvec);
+error=sum((approx-yvec).^2,2)
+plot(xvec,approx)
+hold off

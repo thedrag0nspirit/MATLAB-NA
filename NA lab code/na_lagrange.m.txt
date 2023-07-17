@@ -1,0 +1,18 @@
+%% Lagrange Method for Interpolation
+%% Submission by Pulkit Gupta 102115172
+clc
+clear all
+xvec=[0 1 2 3];
+yvec=[1 3 3 3];
+[~,n]=size(xvec);
+p1=zeros(n,n);
+for i=1:n
+    roots=xvec;
+    roots(i)=[];
+    num(i,:)=poly(roots);
+    den(i)=polyval(num(i,:),xvec(i));
+    p1(i,:)=(num(i,:)/den(i))*yvec(i);
+end
+finalcoeff=sum(p1,1);
+%lagrange_poly=poly2sym(finalcoeff)
+polyval(finalcoeff,0.3)

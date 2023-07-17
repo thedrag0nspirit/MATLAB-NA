@@ -1,0 +1,17 @@
+%% Newton Raphson Method: Submitted by- Pulkit Gupta 102115172
+clc
+clear all
+f=@(x)x^3+2*x^2-3*x-1;
+fdash=@(x)3*x^2+4*x-3;
+tol=0.00001;
+old=1;
+err=10;
+itr=0;
+while(err>tol)
+    new=old-f(old)/fdash(old);
+    err=abs(old-new);
+    old=new;
+    itr=itr+1;
+end
+new
+itr

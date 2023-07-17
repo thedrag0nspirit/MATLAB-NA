@@ -1,0 +1,17 @@
+%% Trapezoidal Rule :  Sumission by- Pulkit Gupta 102115172
+%%
+clc
+clear all
+f=@(x) sin(x);
+a=0;
+b=pi/4;
+n=1;
+I_trap=((b-a)/2^n)*(f(a)+f(b))
+
+%% simpons1/3
+I_trap1=((b-a)/(2*3))*(f(a)+4*f((a+b)/2)+f(b))
+%% simpons 3/8
+n=3
+h=(b-a)/3;
+I_trap2=(3*h/8)*(f(a)+3*f(a+h)+3*f(a+2*h)+f(b))
+

@@ -1,0 +1,29 @@
+%% LU decomposition: Submitted by- Pulkit Gupta 102115172
+clc
+clear all
+a=[2 3 4;4 11 14;2 8 17];b=[19;55;50];
+A=a;
+[n,m]=size(A);
+I=eye(n);
+for i=1:n-1
+    for k=i+1:n
+        mul=a(k,i)/A(i,i);
+        I(k,i)=mul;
+        A(k,:)=-mul*A(i,:)+A(k,:);
+    end
+end
+U=A
+I
+L=[I b]
+[n,m]=size(L);
+y=zeros(1,n);
+for i=1:n
+    y(i)=(L(i,m)-sum(L(i,1:n).*y))/L(i,i);
+end
+y
+U=[U y']
+x=zeros(1,n);
+for i=n:-1:1
+    x(i)=(U(i,m)-sum(U(i,1:n).*x))/U(i,i);
+end
+x

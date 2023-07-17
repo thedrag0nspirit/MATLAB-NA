@@ -1,0 +1,18 @@
+%% Secant Method : Submission by Pulkit Gupta-102115172
+clc
+clear all
+f=@(x)x^3+2*x^2-3*x-1;
+tol=0.00001;
+old=1;
+old1=2;
+err=10;
+itr=0;
+while(err>tol)
+    new=old-(f(old)*(old-old1))/(f(old)-f(old1));
+    err=abs(old-new);
+    old1=old;
+    old=new;
+    itr=itr+1;
+end
+new
+itr

@@ -1,0 +1,20 @@
+%% Gauss Siedal Method: Submission by- Pulkit Gupta 102115172
+clc
+clear all
+a=[2 1;1 3];
+b=[2;6];
+xold=[0;0];
+tol=0.0005;
+d=diag(diag(a));
+u=triu(a)-d;
+l=tril(a)-d;
+err=10;
+count=0;
+while err>tol
+    xnew=(d+l)\b-((d+l)\u)*xold; %\=inv() and multioply
+    err=norm(xnew-xold,inf);
+    count=count+1;
+    xold=xnew;
+end
+count
+xnew

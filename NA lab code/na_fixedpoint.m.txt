@@ -1,0 +1,16 @@
+%% Fixed Point Method: Submitted by- Pulkit Gupta 102115172
+clc
+clear all
+f=@(x)atan(4*x);
+tol=0.00001;
+old=1.2;
+err=10;
+itr=0;
+while(err>tol)
+    new=f(old);
+    err=abs(old-new);
+    old=new;
+    itr=itr+1;
+end
+new
+itr

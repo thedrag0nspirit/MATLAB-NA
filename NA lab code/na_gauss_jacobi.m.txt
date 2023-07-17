@@ -1,0 +1,20 @@
+%% Gauss Jacobi Method: Submitted by- Pulkit Gupta 102115172
+clc
+clear all
+a=[5 1 2;-3 9 4;1 2 -7];
+b=[10;-14;-33];
+xold=[0;0;0];
+tol=0.00001;
+d=diag(diag(a));
+u=triu(a)-d;
+l=tril(a)-d;
+err=10;
+count=0;
+while err>tol
+    xnew=d\b-d\(l+u)*xold; %\=inv() and multioply
+    err=norm(xnew-xold,inf);
+    count=count+1;
+    xold=xnew;
+end
+count
+xnew

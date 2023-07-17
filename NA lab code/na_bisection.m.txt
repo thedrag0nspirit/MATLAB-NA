@@ -1,0 +1,26 @@
+%% Bisection Method: Submission by- Pulkit Gupta 102115172
+clc
+clear all
+a=6;
+b=7;
+f=@(x)x*x-37;
+e=0.001;
+count=0;
+while((b-a)/2>e)
+    c=(a+b)/2;
+    fa=sign(f(a));
+    fb=sign(f(b));
+    fc=sign(f(c));
+    if(fa*fc<0)
+        b=c;
+        count=count+1;
+    elseif(fb*fc<0)
+        a=c;
+        count=count+1;
+    elseif(f(c)==0)
+        printf('zero is c');
+        break;
+    end
+end
+count
+c

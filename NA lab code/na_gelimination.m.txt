@@ -1,0 +1,17 @@
+%% Gauss elimination Method: Submission by- Pulkit Gupta 102115172
+clc
+clear all
+a=[2 3 4 19;4 11 14 55;2 8 17 50];
+[n,m]=size(a);
+for i=1:n-1
+    for k=i+1:n
+        mul=a(k,i)/a(i,i);
+        a(k,:)=-mul*a(i,:)+a(k,:);
+    end
+end
+a
+x=zeros(1,n);
+for i=n:-1:1
+    x(i)=(a(i,m)-sum(a(i,1:n).*x))/a(i,i);
+end
+x
